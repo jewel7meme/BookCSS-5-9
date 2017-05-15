@@ -9,6 +9,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
 public class BookRepo {
     private DBHelper dbHelper;
 
@@ -76,8 +78,12 @@ public class BookRepo {
                 HashMap<String, String> book = new HashMap<String, String>();
                 book.put("id", cursor.getString(cursor.getColumnIndex(Book.KEY_ID)));
                 book.put("title", cursor.getString(cursor.getColumnIndex(Book.KEY_title)));
+                book.put("cName", cursor.getString(cursor.getColumnIndex(Book.KEY_cName)));
                 bookList.add(book);
 
+                String title = cursor.getString(cursor.getColumnIndex(Book.KEY_title)) + "\n" +
+                cursor.getString(cursor.getColumnIndex(Book.KEY_cName));
+                MainActivity.ArrayofTitle.add(title);
             } while (cursor.moveToNext());
         }
 
@@ -87,7 +93,37 @@ public class BookRepo {
 
     }
 
-    public Book getBookById(int Id){
+    public List<Book> getAllBooks(){
+        List<Book> bookList = new ArrayList<Book>();
+        //Select All Query
+        String selectQuery = "SELECT * FROM " + Book.TABLE;
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Book book = new Book();
+                book.setBook_ID(Integer.parseInt(cursor.getString(0)));
+                book.setTitle(cursor.getString(1));
+                book.setCourseName(cursor.getString(2));
+                book.setCourseNumber(cursor.getString(3));
+                book.setPrice(cursor.getDouble(4));
+
+
+                String brief = cursor.getString(1) + "\n" + cursor.getString(2)
+                        + "\n" + cursor.getString(3)
+                        + "\n" + cursor.getString(4);
+                MainActivity.ArrayofTitle.add(brief);
+                // Adding contact to list
+                bookList.add(book);
+            } while (cursor.moveToNext());
+        }
+            return bookList;
+    }
+
+    public Book getBookById(String Id){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String selectQuery =  "SELECT  " +
                 Book.KEY_ID + "," +

@@ -15,42 +15,58 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class BookDetail extends ActionBarActivity implements android.view.View.OnClickListener{
+public class BookDetail extends ActionBarActivity {//implements android.view.View.OnClickListener{
 
-    Button btnSave ,  btnDelete;
+    //Button btnSave ,  btnDelete;
     Button btnClose;
-    EditText editTextTitle;
-    EditText editTextCourseName;
-    EditText editTextCourseNumer;
-    EditText editTextPrice;
-    private int _Book_Id=0;
+    TextView editTextTitle;
+    TextView editTextCourseName;
+    TextView editTextCourseNumer;
+    TextView editTextPrice;
+    protected String _Book_Id;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
 
-        btnSave = (Button) findViewById(R.id.btnSave);
-        btnDelete = (Button) findViewById(R.id.btnDelete);
+        //btnSave = (Button) findViewById(R.id.btnSave);
+        //btnDelete = (Button) findViewById(R.id.btnDelete);
         btnClose = (Button) findViewById(R.id.btnClose);
 
-        editTextTitle = (EditText) findViewById(R.id.editTextBookTitle);
-        editTextCourseName = (EditText) findViewById(R.id.editTextCourseName);
-        editTextCourseNumer = (EditText) findViewById(R.id.editTextCourseNumber);
-        editTextPrice = (EditText) findViewById(R.id.editTextBookPrice);
+        editTextTitle = (TextView) findViewById(R.id.editTextBookTitle);
+        editTextCourseName = (TextView) findViewById(R.id.editTextCourseName);
+        editTextCourseNumer = (TextView) findViewById(R.id.editTextCourseNumber);
+        editTextPrice = (TextView) findViewById(R.id.editTextBookPrice);
 
-        btnSave.setOnClickListener(this);
-        btnDelete.setOnClickListener(this);
-        btnClose.setOnClickListener(this);
+        //btnSave.setOnClickListener(this);
+        //btnDelete.setOnClickListener(this);
+        //btnClose.setOnClickListener(this);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
-
-        _Book_Id =0;
+        Bundle extras = getIntent().getExtras();
+        Book bookNew = (Book)extras.getSerializable("selectedBook");
+        editTextTitle.setText(bookNew.getTitle());
+        editTextCourseName.setText(bookNew.getCourseName());
+        editTextCourseNumer.setText(bookNew.getCourseNumber());
+        editTextPrice.setText(String.valueOf(bookNew.getPrice()));
+        /*//_Book_Id =0;
         Intent intent = getIntent();
-        _Book_Id =intent.getIntExtra("book_Id", 0);
+       // _Book_Id =intent.getIntExtra("book_Id", 0);
+        Bundle extras = getIntent().getExtras();
+        _Book_Id = extras.getString("book_Id");
         BookRepo repo = new BookRepo(this);
         Book book = new Book();
         book = repo.getBookById(_Book_Id);
@@ -59,11 +75,13 @@ public class BookDetail extends ActionBarActivity implements android.view.View.O
         editTextCourseName.setText(book.courseName);
         editTextCourseNumer.setText(book.courseNumber);
         editTextPrice.setText(String.valueOf(book.price));
+*/
+
     }
 
 
 
-    public void onClick(View view) {
+    /*public void onClick(View view) {
         if (view == findViewById(R.id.btnSave)){
             BookRepo repo = new BookRepo(this);
             Book book = new Book();
@@ -92,6 +110,6 @@ public class BookDetail extends ActionBarActivity implements android.view.View.O
         }
 
 
-    }
+    }*/
 
 }

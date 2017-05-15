@@ -20,18 +20,7 @@ tools:context="com.example.zyang3.bookcssmayeighth.BookDetail">
     android:layout_alignParentStart="true"
     android:layout_marginTop="30dp" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:text="Course Name"
-    android:id="@+id/textView2"
-    android:layout_below="@+id/textView"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:layout_marginTop="29dp" />
-
-<TextView
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -52,59 +41,21 @@ tools:context="com.example.zyang3.bookcssmayeighth.BookDetail">
         android:layout_alignParentStart="true"
         android:layout_marginTop="29dp" />
 
-<EditText
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:inputType="text"
-    android:ems="10"
-    android:id="@+id/editTextBookTitle"
-    android:layout_above="@+id/textView2"
-    android:layout_toRightOf="@+id/textView"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentEnd="true" />
-
-<EditText
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:inputType="text"
-    android:ems="10"
-    android:id="@+id/editTextCourseName"
-    android:layout_above="@+id/textView3"
-    android:layout_toRightOf="@+id/textView"
-    android:layout_alignRight="@+id/editTextBookTitle"
-    android:layout_alignEnd="@+id/editTextBookTitle" />
-
-<EditText
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:inputType="text"
-    android:ems="10"
-    android:id="@+id/editTextCourseNumber"
-    android:layout_alignBottom="@+id/textView3"
-    android:layout_alignLeft="@+id/editTextCourseName"
-    android:layout_alignStart="@+id/editTextCourseName"
-    android:layout_alignRight="@+id/editTextCourseName"
-    android:layout_alignEnd="@+id/editTextCourseName" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editTextBookPrice"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_alignLeft="@+id/editTextCourseNumber"
-        android:layout_alignStart="@+id/editTextCourseNumber"
-        android:layout_alignRight="@+id/editTextCourseNumber"
-        android:layout_alignEnd="@+id/editTextCourseNumber" />
-
-<Button
+    <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Save"
     android:id="@+id/btnSave"
     android:layout_alignParentBottom="true"
-    android:layout_toLeftOf="@+id/btnClose" />
+    android:layout_toLeftOf="@+id/btnClose"
+        android:visibility="gone"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bargin"
+        android:id="@+id/btnBargin"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/btnClose" />
 
 <Button
     android:layout_width="wrap_content"
@@ -121,6 +72,63 @@ tools:context="com.example.zyang3.bookcssmayeighth.BookDetail">
     android:text="Delete"
     android:id="@+id/btnDelete"
     android:layout_alignTop="@+id/btnSave"
-    android:layout_toLeftOf="@+id/btnSave" />
+    android:layout_toLeftOf="@+id/btnSave"
+    android:visibility="gone"/>
+
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:inputType="text"
+    android:ems="10"
+    android:id="@+id/editTextCourseNumber"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editTextBookPrice"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Course Name"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="33dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/editTextBookTitle"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:fontFamily="sans-serif"
+        android:layout_alignParentEnd="true"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/editTextCourseName"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold" />
 
 </RelativeLayout>

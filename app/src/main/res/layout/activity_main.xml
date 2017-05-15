@@ -16,15 +16,16 @@
             android:id="@+id/btnAdd"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:visibility="gone"/>
 
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@android:id/list"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-            android:layout_above="@+id/btnAdd" />
+            android:layout_above="@+id/btnAdd"
+            android:id="@+id/listView1" />
 
         <Button
             android:layout_width="wrap_content"
@@ -33,6 +34,7 @@
             android:id="@+id/btnGetAll"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/btnAdd"
-            android:onClick="onClick" />
+            android:onClick="onClick"
+            android:visibility="gone"/>
 
     </RelativeLayout>
